@@ -1,0 +1,11 @@
+﻿@model IEnumerable<WebOnline.Models.sanPham>
+   <p class="lead">Nhà sản xuất</p>
+<div class="list-group">
+            @foreach(var item in Model)
+            {
+                <a href="@Url.Action("SPTheochude","Shopp",new { id=item.nhaSanXuat })" class="list-group">
+                    @item.nhaSanXuat
+                </a>
+            }
+        </div>
+

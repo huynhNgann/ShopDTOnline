@@ -1,0 +1,35 @@
+﻿@model WebOnline.Models.Account
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="col-md-6 login-do">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @using (Html.BeginForm("Login", "Accounts", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <h2 class="text-center text-danger text-uppercase">Đăng nhập hệ thống</h2>
+            <fieldset class="form-group">
+                <label for="formGroupExampleInput">Tên đăng nhập</label>
+                @Html.TextBoxFor(model => model.UserName, null, new { @class = "form-control" })
+
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="formGroupExampleInput2">Password</label>
+                @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control" })
+            </fieldset>
+            <hr />
+            <fieldset class="form-group">
+                <button type="submit" class="btn btn-success px-5 text-center">Đăng nhập</button>
+            </fieldset>
+            <fieldset class="form-group">
+                @ViewBag.Message
+            </fieldset>
+        }
+    }
+</div>
+
+

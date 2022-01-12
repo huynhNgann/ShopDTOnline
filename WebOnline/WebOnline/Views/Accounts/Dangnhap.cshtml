@@ -1,0 +1,83 @@
+﻿@model WebOnline.Models.Account
+
+@{
+    ViewBag.Title = "Dangnhap";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="banner-top">
+    <div class="container">
+        <h1>Login</h1>
+        <em></em>
+        <h2><a href="index.html">Home</a><label>/</label>Login</h2>
+    </div>
+</div>
+<!--login-->
+<div class="container">
+    <div class="login">
+
+        <form>
+
+
+            @using (Html.BeginForm("Login", "Accounts", FormMethod.Post))
+            {
+                <div class="col-md-6 login-do">
+                    <h2 class="text-center text-danger text-uppercase">Đăng nhập hệ thống</h2>
+                    <fieldset class="form-group">
+                        <label for="formGroupExampleInput">Tên đăng nhập</label>
+                        @Html.TextBoxFor(model => model.UserName, null, new { @class = "form-control" })
+
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="formGroupExampleInput2">Password</label>
+                        @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control" })
+                    </fieldset>
+                    <hr />
+                    <fieldset class="form-group">
+                        <button type="submit" class="btn btn-success px-5 text-center">Đăng nhập</button>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @ViewBag.Message
+                    </fieldset>
+                    </div>
+                    }
+                    <div class="col-md-6 login-right">
+                        <h3>Completely Free Account</h3>
+
+                        <p>
+                            Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio
+                            libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.
+                        </p>
+                        <a href="register.html" class=" hvr-skew-backward">Register</a>
+
+                    </div>
+
+                    <div class="clearfix"> </div>
+            </form>
+    </div>
+
+</div>
+
+<!--//login-->
+<!--brand-->
+<div class="container">
+    <div class="brand">
+        <div class="col-md-3 brand-grid">
+            <img src="images/ic.png" class="img-responsive" alt="">
+        </div>
+        <div class="col-md-3 brand-grid">
+            <img src="images/ic1.png" class="img-responsive" alt="">
+        </div>
+        <div class="col-md-3 brand-grid">
+            <img src="images/ic2.png" class="img-responsive" alt="">
+        </div>
+        <div class="col-md-3 brand-grid">
+            <img src="images/ic3.png" class="img-responsive" alt="">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!--//brand-->
+
+
+
+

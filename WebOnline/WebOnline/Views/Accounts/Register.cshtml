@@ -1,0 +1,92 @@
+﻿@model WebOnline.Models.Account
+
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="banner-top">
+    <div class="container">
+        <h1>Register</h1>
+        <em></em>
+        <h2><a href="index.html">Home</a><label>/</label>Register</h2>
+    </div>
+</div>
+<!--login-->
+<div class="container">
+    <div class="login">
+        <div class="container">
+            <form>
+                <div class="col-md-6 login-do">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4>Account</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit"  class="btn btn-danger">Submit</button>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    }
+                </div>
+                <div class="col-md-6 login-right">
+                    <h3>Completely Free Account</h3>
+
+                    <p>
+                        Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio
+                        libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.
+                    </p>
+                    <a href="@Url.Action("Login","Accounts")" class="hvr-skew-backward">Login</a>
+
+                </div>
+
+                <div class="clearfix"> </div>
+            </form>
+        </div>
+        
+
+    </div>
+
+        </div>
+
+
+<!--//login-->
+<!--brand-->
+<div class="container">
+    <div class="brand">
+        <div class="col-md-3 brand-grid">
+            <img src="~/Asset/User/images/ic.png" class="img-responsive" alt="">
+        </div>
+        <div class="col-md-3 brand-grid">
+            <img src="~/Asset/User/images/ic1.png" class="img-responsive" alt="">
+        </div>
+        <div class="col-md-3 brand-grid">
+            <img src="~/Asset/User/images/ic2.png" class="img-responsive" alt="">
+        </div>
+        <div class="col-md-3 brand-grid">
+            <img src="~/Asset/User/images/ic3.png" class="img-responsive" alt="">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!--//brand-->

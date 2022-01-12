@@ -1,0 +1,97 @@
+﻿@model IEnumerable<WebOnline.Models.sanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    .img{
+       width:10px;
+       height:30px
+    }
+</style>
+
+<h2>Index</h2>
+<div class="card-header">
+    <div class="row">
+        <div class="col-md-6 text-danger text-uppercase">
+            <strong>Sách sản phẩm</strong>
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="@Url.Action("Create","sanPhams")" class="btn btn-sm btn-success">Thêm sản phẩm</a>
+            <a href="@Url.Action("","")" class="btn btn-sm btn-danger">Thùng rác</a>
+
+        </div>
+
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        
+        
+        <th>
+           Tên sản phẩm
+        </th>
+        <th>
+           Loại sản phẩm
+        </th>
+        <th class="hinh">Hình</th>
+        <th>
+           Nội dung
+        </th>
+        <th>
+           Ngày đăng
+        </th>
+ 
+        <th>
+           Giá
+        </th>
+       
+        <th>
+            Thương hiệu
+        </th>
+       
+        <th>Chức năng</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+             <td>
+                @Html.DisplayFor(modelItem => item.tenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.loaiSP)
+            </td>
+            <td>
+                <img with=10px src="~/Asset/Admin/img/@item.hinhDD" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ndTomTat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ngayDang)
+            </td>
+           
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.giaBan)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.nhaSanXuat)
+            </td>
+           
+            <td>
+                <a class="btn btn-success"> @Html.ActionLink("Edit", "Edit", new { id = item.maSP }) </a>
+                <a class="btn btn-success"> @Html.ActionLink("Details", "Details", new { id = item.maSP }) </a>
+                <a class="btn btn-danger">  @Html.ActionLink("Delete", "Delete", new { id = item.maSP })</a> 
+            </td>
+        </tr>
+    }
+
+</table>
